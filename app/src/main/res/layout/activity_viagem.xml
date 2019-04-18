@@ -75,10 +75,12 @@
 
                 <Button
                     android:id="@+id/dataChegada"
+                    android:onClick="onSelecionarData"
                     android:text="@string/selecione" />
 
                 <Button
                     android:id="@+id/dataSaida"
+                    android:onClick="onSelecionarData"
                     android:text="@string/selecione" />
             </TableRow>
 

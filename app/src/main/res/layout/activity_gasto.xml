@@ -71,10 +71,11 @@
                     android:layout_width="191dp"
                     android:inputType="numberDecimal" />
 
-                <EditText
-                    android:id="@+id/editData"
+                <Button
+                    android:id="@+id/dataGasto"
                     android:layout_width="191dp"
-                    android:inputType="date" />
+                    android:onClick="onSelecionarData"
+                    android:text="@string/selecione" />
             </TableRow>
 
             <TextView
