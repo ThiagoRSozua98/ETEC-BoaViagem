@@ -1,8 +1,10 @@
 package br.com.etechoracio.etec_boaviagem.utils;
 
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 public class DateTimeUtils {
 
@@ -14,6 +16,14 @@ public class DateTimeUtils {
             cal.set(ano, mes, dia);
             return DATE_FORMAT.format(cal.getTime());
         } catch (Exception e){
+            return null;
+        }
+    }
+
+    public static Date toDate(String date){
+        try {
+            return DATE_FORMAT.parse(date);
+        } catch (ParseException e) {
             return null;
         }
     }

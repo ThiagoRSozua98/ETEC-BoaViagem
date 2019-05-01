@@ -7,10 +7,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import java.util.Calendar;
 
+import br.com.etechoracio.etec_boaviagem.model.Viagem;
 import br.com.etechoracio.etec_boaviagem.utils.DateTimeUtils;
 
 public class ViagemActivity extends AppCompatActivity {
@@ -18,12 +21,22 @@ public class ViagemActivity extends AppCompatActivity {
     private Button dataChegada;
     private Button dataSaida;
 
+    private EditText editDestino;
+    private EditText editQuantidadePessoas;
+    private EditText editOrcamento;
+    private RadioGroup radioTipo;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_viagem);
         dataChegada = findViewById(R.id.dataChegada);
         dataSaida =  findViewById(R.id.dataSaida);
+
+        editDestino = findViewById(R.id.editDestino);
+        editQuantidadePessoas = findViewById(R.id.editQuantidadePessoas);
+        editOrcamento = findViewById(R.id.editOrcamento);
+        radioTipo = findViewById(R.id.radioTipo);
     }
 
     private DatePickerDialog.OnDateSetListener dateListenerChegada = new DatePickerDialog.OnDateSetListener() {
@@ -63,5 +76,18 @@ public class ViagemActivity extends AppCompatActivity {
         showDialog(view.getId());
 
     }
+
+    public void onSalvar(View view){
+
+        Viagem viagem = new Viagem();
+        viagem.setDestino(editDestino.getText().toString());
+        viagem.setDataChegada(DateTimeUtils.toDate(dataChegada.getText().toString()));
+        viagem.setDataSaida(DateTimeUtils.toDate(dataSaida.getText().toString()));
+        viagem.setOrcamento(Double.valueOf(editOrcamento.getText().toString()));
+        viagem.setQuantidadePessoas(Integer.valueOf(editQuantidadePessoas.getText().toString()));
+
+    }
+
+
 
 }
