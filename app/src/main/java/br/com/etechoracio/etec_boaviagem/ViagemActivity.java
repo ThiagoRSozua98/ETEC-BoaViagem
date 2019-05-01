@@ -11,6 +11,8 @@ import android.widget.Toast;
 
 import java.util.Calendar;
 
+import br.com.etechoracio.etec_boaviagem.utils.DateTimeUtils;
+
 public class ViagemActivity extends AppCompatActivity {
 
     private Button dataChegada;
@@ -27,16 +29,16 @@ public class ViagemActivity extends AppCompatActivity {
     private DatePickerDialog.OnDateSetListener dateListenerChegada = new DatePickerDialog.OnDateSetListener() {
         @Override
         public void onDateSet(DatePicker datePicker, int ano, int mes, int dia) {
-            String data = String.valueOf(dia) + " /" + String.valueOf(mes + 1) + " /" + String.valueOf(ano);
-            dataChegada.setText(data);
+            //String data = String.valueOf(dia) + " /" + String.valueOf(mes + 1) + " /" + String.valueOf(ano);
+            dataChegada.setText(DateTimeUtils.formatDate(dia, mes + 1, ano));
 
         }
     };
     private  DatePickerDialog.OnDateSetListener dateListenerSaida = new DatePickerDialog.OnDateSetListener() {
         @Override
         public void onDateSet(DatePicker datePicker, int ano, int mes, int dia) {
-           String data = String.valueOf(dia) + " /" + String.valueOf(mes+1) + " /" + String.valueOf(ano);
-           dataSaida.setText(data);
+           //String data = String.valueOf(dia) + " /" + String.valueOf(mes+1) + " /" + String.valueOf(ano);
+           dataSaida.setText(DateTimeUtils.formatDate(dia, mes + 1, ano));
         }
     };
     
